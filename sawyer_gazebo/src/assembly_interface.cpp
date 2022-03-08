@@ -36,7 +36,7 @@ void AssemblyInterface::init(ros::NodeHandle& nh) {
     assembly_state_buffer_.set(assembly_state);
     assembly_state_pub_ = nh.advertise<intera_core_msgs::RobotAssemblyState>("state", 1);
     assembly_sim_estop_pub_ = nh.advertise<std_msgs::Bool>("sim_estop", 1);
-    assembly_state_timer_ = nh.createTimer(100, &AssemblyInterface::update, this);// 100Hz
+    assembly_state_timer_ = nh.createTimer(800, &AssemblyInterface::update, this);// 100Hz
     assembly_enable_sub_ = nh.subscribe("set_super_enable", 100, &AssemblyInterface::callbackEnable, this);
     assembly_stop_sub_ =  nh.subscribe("set_super_stop", 100, &AssemblyInterface::callbackStop, this);
     assembly_reset_sub_ = nh.subscribe("set_super_reset", 100, &AssemblyInterface::callbackReset, this);
