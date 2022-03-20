@@ -8,8 +8,8 @@ robot:
   # Sawyer SDK Controllers: Head --------------------------
   head_position_controller:
     type: sawyer_sim_controllers/SawyerHeadController
-    topic_command: /sawyer_1/robot/head/command_head_pan
-    topic_state: /sawyer_1/robot/head/head_state
+    topic_command: /sawyer_2/robot/head/command_head_pan
+    topic_state: /sawyer_2/robot/head/head_state
     joints:
           head_controller:
             joint: head_pan
@@ -18,8 +18,8 @@ robot:
   # Sawyer SDK Controllers: Position --------------------------
   right_joint_position_controller:
     type: sawyer_sim_controllers/SawyerPositionController
-    topic_joint_command: /sawyer_1/robot/limb/right/joint_command
-    topic_set_speed_ratio: /sawyer_1/robot/limb/right/set_speed_ratio
+    topic_joint_command: /sawyer_2/robot/limb/right/joint_command
+    topic_set_speed_ratio: /sawyer_2/robot/limb/right/set_speed_ratio
     joints:
       right_j0_controller:
         joint: right_j0
@@ -46,7 +46,7 @@ robot:
   # Sawyer SDK Controllers: Velocity --------------------------
   right_joint_velocity_controller:
     type: sawyer_sim_controllers/SawyerVelocityController
-    topic: /sawyer_1/robot/limb/right/joint_command
+    topic: /sawyer_2/robot/limb/right/joint_command
     joints:
       right_j0_controller:
         joint: right_j0
@@ -73,7 +73,7 @@ robot:
   # Sawyer SDK Controllers: Effort --------------------------
   right_joint_effort_controller:
     type: sawyer_sim_controllers/SawyerEffortController
-    topic: /sawyer_1/robot/limb/right/joint_command
+    topic: /sawyer_2/robot/limb/right/joint_command
     joints:
       right_j0_controller:
         joint: right_j0
@@ -93,8 +93,8 @@ robot:
   # Sawyer SDK Controllers: Gravity Compensation ------------
   right_joint_gravity_controller:
     type: sawyer_sim_controllers/SawyerGravityController
-    command_topic: /sawyer_1/robot/limb/right/gravity_compensation_torques
-    disable_topic: /sawyer_1/robot/limb/right/suppress_gravity_compensation
+    command_topic: /sawyer_2/robot/limb/right/gravity_compensation_torques
+    disable_topic: /sawyer_2/robot/limb/right/suppress_gravity_compensation
     disable_timeout: 0.2
     joints:
       right_j0_controller:

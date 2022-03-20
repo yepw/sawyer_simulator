@@ -35,7 +35,7 @@
        Note: if you set this to false, you MUST have set the robot_description prior
              to launching sawyer_world -->
   <arg name="load_robot_description" default="true"/>
-  <param if="$(arg load_robot_description)" name="robot_description"
+  <param if="$(arg load_robot_description)" name="/robot/robot_description"
       command="$(find xacro)/xacro --inorder $(find sawyer_description)/urdf/sawyer.urdf.xacro
       gazebo:=true electric_gripper:=$(arg electric_gripper)
       pedestal:=$(arg pedestal) static:=$(arg static)"/>
@@ -72,7 +72,7 @@
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-	args="-param robot_description -urdf -z 0.93 -model sawyer $(arg initial_joint_states)" />
+	args="-param /robot/robot_description -urdf -z 0.93 -model sawyer $(arg initial_joint_states)" />
 
   <!-- ros_control sawyer launch file -->
   <include file="$(find sawyer_sim_controllers)/launch/sawyer_sim_controllers.launch">

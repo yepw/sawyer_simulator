@@ -179,7 +179,7 @@ namespace sawyer_gazebo
   {
     std::string urdf_xml;
     ROS_DEBUG_NAMED("kinematics", "Reading xml file from parameter server");
-    if (!nh.getParam("/robot_description", urdf_xml))
+    if (!nh.getParam("robot_description", urdf_xml))
     {
       ROS_FATAL_NAMED("kinematics",
                       "Could not load the xml from parameter server: %s", urdf_xml.c_str());
@@ -219,7 +219,7 @@ namespace sawyer_gazebo
     if (!nh.getParam("/robot_config/joint_config/joint_acceleration_limit", acceleration_map_))
     {
       ROS_FATAL_NAMED("kinematics",
-                      "Failed to find joint_acceleration_limit on the param server.");
+                      "Failed to find joint_acceleration_limit on the param server. Namespace: %s", nh.getNamespace().c_str());
       return false;
     }
     return true;
